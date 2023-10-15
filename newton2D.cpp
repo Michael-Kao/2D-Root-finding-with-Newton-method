@@ -3,11 +3,6 @@
 #include <climits>
 #include <cfloat>
 #include <fstream>
-/*
-https://en.wikipedia.org/wiki/Jacobi_eigenvalue_algorithm
-https://1fly2sky.files.wordpress.com/2017/12/jacobi-eigenvalue-algorithm.pdf
-https://ccjou.wordpress.com/2015/09/17/jacobi-%E7%89%B9%E5%BE%B5%E5%80%BC%E7%AE%97%E6%B3%95/
-*/
 
 #define PI 3.14159265
 
@@ -65,20 +60,9 @@ double norm2(double x1, double y1, double x2, double y2) {
 }
 
 double getK(double x, double y) {
-    double e = 0.000001;
-    //given a value e
-    //calc theta then update Jacobian matrix
-    //once each value converge then the diagonal would be eigen value
-    // Jacobian Matrix = fx fy
-    //                   gx gy
-    double mat[2][2] = {0};
-    mat[0][0] = fx(x);
-    mat[0][1] = fy(y);
-    mat[1][0] = gx(x);
-    mat[1][1] = gy(y);
-    while(true) {
-        double theta = atan2 
-    }
+    //still not understand
+    //https://silverwind1982.pixnet.net/blog/post/154593170
+    //should use this concept but don't know how to find multiple ans
 }
 
 void newton2D(double x, double y) {
