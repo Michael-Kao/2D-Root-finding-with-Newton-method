@@ -1,10 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <climits>
-#include <cfloat>
 #include <fstream>
-
-#define PI 3.14159265
 
 std::ofstream ofs;
 /*
@@ -14,17 +11,6 @@ fx(x, y) = 2x
 fy(x, y) = 2y
 gx(x, y) = 2x
 gy(x, y) = -2y
-Jacobian Matrix = fx fy
-                  gx gy
-(A - lambdaI)x = 0
-eigenvalue = lambda
-det(A - lambdaI) = 0
-A - lambdaI = fx - lambda      fy
-                       gx      gy - lambda  
-            
-            => (fx - lambda)(gy-lambda) - (gxfy) = 0
-            (fx - lambda)(gy - lambda) = gxfy
-            fxgy - fxlambda - gylambda + lambda^2 = gxfy
 */
 
 double f(double x, double y) {
@@ -59,12 +45,6 @@ double norm2(double x1, double y1, double x2, double y2) {
     return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
-double getK(double x, double y) {
-    //still not understand
-    //https://silverwind1982.pixnet.net/blog/post/154593170
-    //should use this concept but don't know how to find multiple ans
-}
-
 void newton2D(double x, double y) {
     double epsilon = 0.000001; // 10^-6
     double e = 1;
@@ -81,9 +61,6 @@ void newton2D(double x, double y) {
         double k = detval * ((-gxval * fval) + (fxval * gval));
         double xnew = x + h;
         double ynew = y + k;
-        if(fy(y) == gx(x)) {
-            double k = getK(x, y);
-        }
         e = norm2(x, y, xnew, ynew);
         ofs << i << " : (" << x << "," << y << ")\n";
         x = xnew;
